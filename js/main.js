@@ -224,11 +224,17 @@
 	});
 
 	$(document).on('click', 'a', function(event){
-	    event.preventDefault();
+    event.preventDefault();
 
-	    $('html, body').animate({
-	        scrollTop: $( $.attr(this, 'href') ).offset().top
-	    }, 1000, "easeInOutExpo");
+    $('html, body').animate({
+      scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 1000, "easeInOutExpo");
 	});
+
+  $('#license-modal').on('show.bs.modal', function(e) {
+    $('#licenseModelLabel').html(e.relatedTarget.alt);
+    $('#activeLicenseImage').attr('alt', e.relatedTarget.alt);
+    $('#activeLicenseImage').attr('src', e.relatedTarget.src);
+  })
 
 }());
