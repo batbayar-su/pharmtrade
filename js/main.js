@@ -234,7 +234,11 @@
   $('#license-modal').on('show.bs.modal', function(e) {
     $('#licenseModelLabel').html(e.relatedTarget.alt);
     $('#activeLicenseImage').attr('alt', e.relatedTarget.alt);
-    $('#activeLicenseImage').attr('src', e.relatedTarget.src);
+    var src = e.relatedTarget.src;
+    src = src.replace('thumb/', '');
+    $('#activeLicenseImage').attr('src', src);
   })
+
+  document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
 
 }());
